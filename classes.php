@@ -110,7 +110,7 @@ class Customer
         try
         {
             $pdo = Tools::connect();
-            $ps = $pdo->prepare(("SELECT * FROM Customers WHERE id=?)");
+            $ps = $pdo->prepare(("SELECT * FROM Customers WHERE id=?"));
             $res = $ps ->execute(array($id));
             $row = $res->fetch();
             $customer = new Customer($row['login'],$row['pass'], $row['imagePath'],$row['id']);
@@ -166,7 +166,7 @@ class Item
         try
         {
             $pdo=Tools::connect();
-            $ps=$pdo->prepare(("SELECT * FROM Items WHERE id=?)");
+            $ps=$pdo->prepare(("SELECT * FROM Items WHERE id=?"));
             $res=$ps->execute(array($id));
             $row=$res->fetch();
             $customer=new Item($row['itemName'], $row['catid'], $row['pricein'], $row['pricesale'], $row['info'], $row['imagePath'], $row['rate'], $row['action'],$row['id']);
@@ -202,7 +202,7 @@ class Item
             $row['pricein'],
             $row['pricesale'], $row['info'],
             $row['imagepath'], $row['rate'],
-            $row['action'],$row['id']);
+            $row['action'], $row['id']);
             $items[]=$item;
         }
             return $items;

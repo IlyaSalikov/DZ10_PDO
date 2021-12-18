@@ -1,7 +1,9 @@
 <h3>Registration Form</h3>
 <?php
     if(!isset($_POST['regbtn']))
-    { echo "<form action="index.php?page=3" method="post" enctype="multipart/form-data">
+    {
+ ?>
+    <form action="index.php?page=3" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="login">Login:</label>
                     <input type="text" class="form-control" name="login">
@@ -23,8 +25,10 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" name="regbtn">Register</button>
-            </form>";
-    } else {
+    </form>
+ <?php
+    }
+    else {
         if(is_uploaded_file($_FILES['imagePath']['tmp_name']))
         {
             $path="images/".$_FILES['imagePath']['name'];
